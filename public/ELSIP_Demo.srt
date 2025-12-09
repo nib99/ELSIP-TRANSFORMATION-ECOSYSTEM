@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:03,000
+This is Guji Zone, Oromia. No internet for 100 km.
+
+2
+00:00:03,000 --> 00:00:07,000
+I open ELSIP. Works instantly – everything is saved on the phone.
+
+3
+00:00:07,000 --> 00:00:14,000
+Even without internet, I can complete a full inspection report.
+
+4
+00:00:14,000 --> 00:00:18,000
+Take evidence photos – saved locally.
+
+5
+00:00:18,000 --> 00:00:22,000
+Sign with finger.
+
+6
+00:00:22,000 --> 00:00:28,000
+Press “Generate Official Report” → PDF created in 3 seconds.
+
+7
+00:00:28,000 --> 00:00:35,000
+Full official report with photos, signatures, and QR code – created completely offline.
+
+8
+00:00:35,000 --> 00:00:42,000
+18 days later, I reach a town with internet…
+
+9
+00:00:42,000 --> 00:00:48,000
+…all 27 reports uploaded and verified in 8 seconds.
+
+10
+00:00:48,000 --> 00:00:53,000
+This is ELSIP — built for rural Ethiopia.
+
+11
+00:00:53,000 --> 00:00:59,000
+Live now at elsip.mols.gov.et – Thank you!
