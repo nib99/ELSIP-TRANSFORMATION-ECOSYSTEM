@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../index.css"; // Make sure CSS is imported
+import Card from "../components/Card";
+import ChartCard from "../components/ChartCard";
 
 export default function DashboardView() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -7,43 +8,32 @@ export default function DashboardView() {
   const openVideoModal = () => setIsModalOpen(true);
   const closeVideoModal = () => setIsModalOpen(false);
 
+  const chartData = [
+    { name: "Jan", value: 400 },
+    { name: "Feb", value: 800 },
+    { name: "Mar", value: 600 },
+    { name: "Apr", value: 1200 },
+  ];
+
   return (
-    <div className="dashboard" style={{ padding: "20px" }}>
-      {/* Header */}
-      <header className="dashboard-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px" }}>
-        <h2>Dashboard Overview</h2>
-        <button onClick={openVideoModal} className="video-demo-btn">
-          🎬 Watch 60-Second Demo
-        </button>
-      </header>
+    <div className="p-6 flex flex-col gap-6">
+      {/* Cards */}
+      <div className="flex gap-6 flex-wrap">
+        <Card title="Total Users" value="1,250" color="bg-blue-100" />
+        <Card title="Active Sessions" value="320" color="bg-green-100" />
+        <Card title="Pending Approvals" value="17" color="bg-yellow-100" />
+      </div>
 
-      {/* Cards Section */}
-      <section className="dashboard-cards" style={{ display: "flex", gap: "20px", marginBottom: "40px", flexWrap: "wrap" }}>
-        <div className="card" style={{ flex: "1 1 200px", background: "#f0f4f8", padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
-          <h3>Total Users</h3>
-          <p>1,250</p>
-        </div>
-        <div className="card" style={{ flex: "1 1 200px", background: "#f0f4f8", padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
-          <h3>Active Sessions</h3>
-          <p>320</p>
-        </div>
-        <div className="card" style={{ flex: "1 1 200px", background: "#f0f4f8", padding: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }}>
-          <h3>Pending Approvals</h3>
-          <p>17</p>
-        </div>
-      </section>
+      {/* Charts */}
+      <div className="flex gap-6 flex-wrap">
+        <ChartCard title="Monthly Revenue" data={chartData} />
+        <ChartCard title="User Growth" data={chartData} />
+      </div>
 
-      {/* Charts Section */}
-      <section className="dashboard-charts" style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-        <div className="chart" style={{ flex: "1 1 400px", background: "#fff", padding: "20px", borderRadius: "8px", boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
-          <h3>Monthly Revenue</h3>
-          <p>[Chart Placeholder]</p>
-        </div>
-        <div className="chart" style={{ flex: "1 1 400px", background: "#fff", padding: "20px", borderRadius: "8px", boxShadow: "0 2px 12px rgba(0,0,0,0.1)" }}>
-          <h3>User Growth</h3>
-          <p>[Chart Placeholder]</p>
-        </div>
-      </section>
+      {/* Video Modal Trigger */}
+      <button onClick={openVideoModal} className="video-demo-btn mt-6 w-64">
+        🎬 Watch 60-Second Demo
+      </button>
 
       {/* Video Modal */}
       {isModalOpen && (
@@ -51,7 +41,7 @@ export default function DashboardView() {
           <div className="video-modal-overlay" onClick={closeVideoModal}></div>
           <div className="video-modal-content">
             <iframe
-              src="https://www.youtube.com/embed/VIDEO_ID" // Replace VIDEO_ID
+              src="https://www.youtube.com/embed/VIDEO_ID"
               title="Demo Video"
               width="100%"
               height="100%"
