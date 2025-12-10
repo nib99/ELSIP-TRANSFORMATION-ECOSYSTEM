@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../index.css"; // import CSS
+import "../index.css"; // make sure this imports your CSS
 
 export default function DashboardView() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,21 +18,26 @@ export default function DashboardView() {
 
       {/* Video Modal */}
       {isModalOpen && (
-        <div className="video-modal" onClick={closeVideoModal}>
-          <div
-            className="video-modal-content"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
-          >
+        <div className="video-modal">
+          <div className="video-modal-overlay" onClick={closeVideoModal}></div>
+
+          <div className="video-modal-content">
             <iframe
               src="https://www.youtube.com/embed/VIDEO_ID" // replace VIDEO_ID
               title="Demo Video"
+              width="100%"
+              height="100%"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
-            <div className="video-modal-close" onClick={closeVideoModal}>
-              Close
-            </div>
+
+            <button
+              className="video-modal-close"
+              onClick={closeVideoModal}
+            >
+              &times;
+            </button>
           </div>
         </div>
       )}
