@@ -1,8 +1,8 @@
-import DashboardView from './views/DashboardView.js';
-import CredentialView from './views/CredentialView.js';
-import InspectionView from './views/InspectionView.js';
-import ExtendedInspectionView from './views/ExtendedInspectionView.js';
-import VideoView from './views/VideoView.js'; // ✅ new import
+import DashboardView from './views/DashboardView.jsx';
+import CredentialView from './views/CredentialView.jsx';
+import InspectionView from './views/InspectionView.jsx';
+import ExtendedInspectionView from './views/ExtendedInspectionView.jsx';
+import VideoView from './views/VideoView.jsx'; // ✅ new import
 
 export default function App() {
   const route = window.location.hash.slice(1) || 'dashboard';
