@@ -1,35 +1,43 @@
+import React, { useState } from "react";
+import "../index.css"; // import CSS
+
 export default function DashboardView() {
-  return `
-    <div class="dashboard">
-      <header class="dashboard-header">
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openVideoModal = () => setIsModalOpen(true);
+  const closeVideoModal = () => setIsModalOpen(false);
+
+  return (
+    <div className="dashboard">
+      <header className="dashboard-header">
         <h2>Dashboard Overview</h2>
-        <button onclick="openVideoModal()" class="video-demo-btn">
+        <button onClick={openVideoModal} className="video-demo-btn">
           🎬 Watch 60-Second Demo
         </button>
       </header>
-      <!-- rest of your dashboard -->
+
+      {/* Video Modal */}
+      {isModalOpen && (
+        <div className="video-modal" onClick={closeVideoModal}>
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+          >
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID" // replace VIDEO_ID
+              title="Demo Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <div className="video-modal-close" onClick={closeVideoModal}>
+              Close
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* rest of your dashboard content */}
     </div>
-  `;
+  );
 }
-
-Add button styles to src/index.css:
-
-.video-demo-btn {
-  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-  transition: transform 0.2s;
-}
-
-.video-demo-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-}
-
-
